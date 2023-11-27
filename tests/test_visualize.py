@@ -1,7 +1,10 @@
 from causalml.visualize import get_cumlift
 
+
 def test_visualize_get_cumlift_errors_on_nan():
-    df = pd.DataFrame([[0,np.nan, 0.5],[1,np.nan, 0.1],[1,1,0.4],[0,1,0.3],[1,1,0.2]], columns=["w","y","pred"])
+    df = pd.DataFrame(
+        [[0, np.nan, 0.5], [1, np.nan, 0.1], [1, 1, 0.4], [0, 1, 0.3], [1, 1, 0.2]],
+        columns=["w", "y", "pred"],
+    )
 
     assertRaises(AssertionError, get_cumlift, df)
-
