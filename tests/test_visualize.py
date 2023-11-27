@@ -1,4 +1,4 @@
-from causalml.visualize import get_cumlift
+from causalml.metrics.visualize import get_cumlift
 
 
 def test_visualize_get_cumlift_errors_on_nan():
