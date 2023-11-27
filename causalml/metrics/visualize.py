@@ -223,6 +223,10 @@ def get_qini(
         or treatment_effect_col in df.columns
     )
 
+    assert not (
+        (df[[outcome_col, treatment_col, treatment_effect_col]].isnull().values.any())
+    )
+
     df = df.copy()
     np.random.seed(random_seed)
     random_cols = []
@@ -317,6 +321,10 @@ def get_tmlegain(
         (outcome_col in df.columns)
         and (treatment_col in df.columns)
         or p_col in df.columns
+    )
+
+    assert not (
+        (df[[outcome_col, treatment_col, p_col]].isnull().values.any())
     )
 
     inference_col = [x for x in inference_col if x in df.columns]
@@ -423,6 +431,10 @@ def get_tmleqini(
         (outcome_col in df.columns)
         and (treatment_col in df.columns)
         or p_col in df.columns
+    )
+
+    assert not (
+        (df[[outcome_col, treatment_col, p_col]].isnull().values.any())
     )
 
     inference_col = [x for x in inference_col if x in df.columns]
