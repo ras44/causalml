@@ -323,9 +323,7 @@ def get_tmlegain(
         or p_col in df.columns
     )
 
-    assert not (
-        (df[[outcome_col, treatment_col, p_col]].isnull().values.any())
-    )
+    assert not ((df[[outcome_col, treatment_col, p_col]].isnull().values.any()))
 
     inference_col = [x for x in inference_col if x in df.columns]
 
@@ -433,9 +431,7 @@ def get_tmleqini(
         or p_col in df.columns
     )
 
-    assert not (
-        (df[[outcome_col, treatment_col, p_col]].isnull().values.any())
-    )
+    assert not ((df[[outcome_col, treatment_col, p_col]].isnull().values.any()))
 
     inference_col = [x for x in inference_col if x in df.columns]
 
