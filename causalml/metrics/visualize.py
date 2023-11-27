@@ -84,6 +84,10 @@ def get_cumlift(
         or treatment_effect_col in df.columns
     )
 
+    assert not (
+        (df[[outcome_col, treatment_col, treatment_effect_col]].isnull().values.any())
+    )
+
     df = df.copy()
     np.random.seed(random_seed)
     random_cols = []
