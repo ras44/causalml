@@ -1,5 +1,6 @@
 import pandas as pd
 import numpy as np
+import pytest
 from causalml.metrics.visualize import get_cumlift
 
 
@@ -9,4 +10,5 @@ def test_visualize_get_cumlift_errors_on_nan():
         columns=["w", "y", "pred"],
     )
 
-    assertRaises(AssertionError, get_cumlift, df)
+    with pytest.raises(Exception):
+        get_cumlift(df)
