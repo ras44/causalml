@@ -497,13 +497,14 @@ class XGBDRRegressor(BaseDRRegressor):
             control_name=control_name,
         )
 
+
 class XGBDRClassifier(BaseDRRegressor):
     def __init__(self, ate_alpha=0.05, control_name=0, *args, **kwargs):
         """Initialize a DR-learner with XGBoostClassifier outcome learners, and an XGBoostRegressor effect learner."""
         super().__init__(
-            control_outcome_learner = XGBClassifier(*args, **kwargs),
-            treatment_outcome_learner = XGBClassifier(*args, **kwargs),
-            treatment_effect_learner = XGBRegressor(*args, **kwargs),
+            control_outcome_learner=XGBClassifier(*args, **kwargs),
+            treatment_outcome_learner=XGBClassifier(*args, **kwargs),
+            treatment_effect_learner=XGBRegressor(*args, **kwargs),
             ate_alpha=ate_alpha,
             control_name=control_name,
         )
