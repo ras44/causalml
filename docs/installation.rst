@@ -42,7 +42,6 @@ Install ``causalml`` with ``tensorflow`` for ``DragonNet`` from ``PyPI``
 .. code-block:: bash
 
     pip install causalml[tf]
-    pip install -U numpy                            # this step is necessary to fix [#338](https://github.com/uber/causalml/issues/338)
 
 Install ``causalml`` with ``torch`` for ``CEVAE`` from ``PyPI``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -52,40 +51,63 @@ Install ``causalml`` with ``torch`` for ``CEVAE`` from ``PyPI``
     pip install causalml[torch]
 
 
-Install from source
--------------------
-
-Create a clean ``conda`` environment.
+Install using `uv <https://github.com/astral-sh/uv/blob/main/README.md>`_
+---------------------
 
 .. code-block:: bash
 
-    conda create -n causalml-py38 -y python=3.8
-    conda activate causalml-py38
-    conda install -c conda-forge cxx-compiler
-    conda install python-graphviz
-    conda install -c conda-forge xorg-libxrender
-    conda install -c conda-forge libxcrypt
+    uv init
+    uv add causalml
 
-Then:
+Install ``causalml`` with ``tensorflow`` for ``DragonNet`` using `uv <https://github.com/astral-sh/uv/blob/main/README.md>`_
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. code-block:: bash
+
+    uv add "causalml[tf]"
+
+Install ``causalml`` with ``torch`` for ``CEVAE`` using `uv <https://github.com/astral-sh/uv/blob/main/README.md>`_
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. code-block:: bash
+
+    uv add "causalml[torch]"
+    
+
+
+
+
+    
+Install from source
+-------------------
+
+[Optional] If you don't have Graphviz installed, you can install it using ``conda``, ``brew`` (on MacOS), or ``apt`` (on Linux).
+
+.. code-block:: bash
+
+    conda install python-graphviz
+    brew install graphviz           # MacOS
+    sudo apt-get install graphviz   # Linux
+
+First, clone the repository and install the package:
 
 .. code-block:: bash
 
     git clone https://github.com/uber/causalml.git
     cd causalml
-    pip install .
-    python setup.py build_ext --inplace
+    pip install -e .
 
 with ``tensorflow`` for ``DragonNet``:
 
 .. code-block:: bash
 
-    pip install .[tf]
+    pip install -e ".[tf]"
 
 with ``torch`` for ``CEVAE``:
 
 .. code-block:: bash
 
-    pip install .[torch]
+    pip install -e ".[torch]"
 
 =======
 
@@ -99,6 +121,10 @@ Running Tests
 -------------
 
 Make sure pytest is installed before attempting to run tests.
+
+.. code-block:: bash
+
+    pip install -e ".[test]"
 
 Run all tests with:
 
